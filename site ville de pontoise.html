@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ville de Pontoise - Ville d'art et d'histoire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0055a4;
+            --secondary: #ef4135;
+            --dark: #1a2a3a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #003366 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 2;
+        }
+        
+        .logo img {
+            height: 80px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .main-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-menu li {
+            position: relative;
+        }
+        
+        .main-menu li a {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 1.2rem 1.5rem;
+            display: block;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .main-menu li a:hover {
+            color: var(--primary);
+        }
+        
+        .main-menu li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .main-menu li a:hover:after {
+            width: 80%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 1rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background-image: url(Mairie_pontoise.JPG);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Change la couleur et l'opacité ici */
+    z-index: 1;
+}
+.hero > * {
+position: relative;
+z-index: 2;
+}
+
+
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid var(--secondary);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border-color: white;
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-date {
+            display: block;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .news-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .read-more i {
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            color: var(--secondary);
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            background-color: var(--primary);
+            padding: 3rem 0;
+            margin: 4rem 0;
+        }
+        
+        .quick-links-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .link-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .link-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+        
+        .link-card i {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .link-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .link-card a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .link-card a i {
+            font-size: 1rem;
+            margin-left: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-col p, .footer-col a {
+            opacity: 0.8;
+            margin-bottom: 0.8rem;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .footer-col a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-col a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: var(--transition);
+                z-index: 1001;
+            }
+            
+            .main-menu.active {
+                right: 0;
+            }
+            
+            .main-menu li {
+                width: 100%;
+            }
+            
+            .main-menu li a {
+                padding: 1rem 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container, .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .logo {
+                gap: 1rem;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo ville.png" alt="Logo de Pontoise">
+                <div class="logo-text">
+                    <h1>Ville de Pontoise</h1>
+                    <p>Ville d'art et d'histoire</p>
+                </div>
+            </div>
+            <div class="header-contact">
+                <p><i class="fas fa-phone-alt"></i> 01 34 25 10 10</p>
+                <p><i class="fas fa-envelope"></i> contact@ville-pontoise.fr</p>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="main-menu" id="mainMenu">
+                <li><a href="#"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="#"><i class="fas fa-landmark"></i> La Mairie</a></li>
+                <li><a href="#"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Vie pratique</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="search-box">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Bienvenue à Pontoise</h2>
+            <p>Découvrez une ville riche en histoire, culture et qualité de vie au cœur du Val-d'Oise</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn">Actualités</a>
+                <a href="#" class="btn btn-outline">Démarches en ligne</a>
+            </div>
+        </div>
+    </section>
+    
+    <main class="container">
+        <div class="section-title">
+            <h2>Actualités & Annonces</h2>
+        </div>
+        
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-img">
+                    <img src="parc lavandiere.jpg" alt="Nouveau parc municipal">
+                </div>
+                <div class="news-content">
+                    <span class="news-date"><i class="far fa-calendar-alt"></i> 15 juin 2025</span>
+                    <h3>Inauguration du nouveau parc municipal</h3>
+                    <p>La Ville de Pontoise a le plaisir d'annoncer l'ouverture du nouveau parc des Lavandières, un espace vert de 2 hectares au cœur de la ville.</p>
+                    <a href="#" class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <article class="news-card">
+                <div class="news-img">
+                    <img src="conseil municipal.jpg" alt="Conseil municipal">
+                </div>
+                <div class="news-content">
+                    <span class="news-date"><i class="far fa-calendar-alt"></i> 5 juin 2025</span>
+                    <h3>Conseil municipal du 10 juin</h3>
+                    <p>Le prochain conseil municipal se tiendra le 23 juin à 18h30 dans la salle des fêtes de l'hôtel de ville.</p>
+                    <a href="#" class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <article class="news-card">
+                <div class="news-img">
+                    <img src="festival de canne.jpg" alt="Festival de musique">
+                </div>
+                <div class="news-content">
+                    <span class="news-date"><i class="far fa-calendar-alt"></i> 1 juin 2025</span>
+                    <h3>Festival de musique médiévale</h3>
+                    <p>Du 20 au 22 juillet, Pontoise accueillera son traditionnel festival de musique médiévale avec des artistes venus de toute l'Europe.</p>
+                    <a href="#" class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <section class="quick-links">
+        <div class="quick-links-container">
+            <div class="links-grid">
+                <div class="link-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Horaires</h3>
+                    <a href="#">Voir les horaires d'ouverture <i class="fas fa-chevron-right"></i></a>
+                </div>
+                
+                <div class="link-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Démarches</h3>
+                    <a href="#">Accéder aux formulaires <i class="fas fa-chevron-right"></i></a>
+                </div>
+                
+                <div class="link-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Agenda</h3>
+                    <a href="#">Voir tous les événements <i class="fas fa-chevron-right"></i></a>
+                </div>
+                
+                <div class="link-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Plan de la ville</h3>
+                    <a href="#">Consulter le plan <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Mairie de Pontoise</h3>
+                <p>Hôtel de Ville</p>
+                <p>Place de l'Hôtel de Ville</p>
+                <p>95300 Pontoise</p>
+                <p>01 34 25 10 10</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Horaires</h3>
+                <p>Lundi au vendredi: 8h30-12h et 13h30-17h30</p>
+                <p>Samedi: 9h-12h (état civil uniquement)</p>
+                <p>Dimanche: Fermé</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Liens utiles</h3>
+                <a href="#">Marchés publics</a>
+                <a href="#">Urbanisme</a>
+                <a href="#">État civil</a>
+                <a href="#">Démarches en ligne</a>
+                <a href="#">Espace citoyen</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Réseaux sociaux</h3>
+                <p>Suivez-nous sur les réseaux pour ne rien manquer</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2023 Mairie de Pontoise - Tous droits réservés | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#') return;
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.news-card, .link-card, .section-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.news-card, .link-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
